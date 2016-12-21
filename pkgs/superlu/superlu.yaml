@@ -59,3 +59,4 @@ build_stages:
     mkdir ${ARTIFACT}/include/
     cp lib/libsuperlu_4.3.a ${ARTIFACT}/lib/
     cp SRC/*.h ${ARTIFACT}/include/
+    ln -s ${ARTIFACT}/lib/libsuperlu_4.3.a ${ARTIFACT}/lib/libsuperlu.a
