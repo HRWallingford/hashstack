@@ -35,8 +35,8 @@ packages:
       openssl,bzip2,sqlite
   blas:
     use: openblas
-  lapack:    
-  daetk:
+  lapack:  
+  daetk:  
   mpi:
     use: host-mpi
   mpi4py:
@@ -45,6 +45,7 @@ packages:
   ipython:
   matplotlib:
   petsc:
+    version: 3.6.1
     build_with: |
       parmetis
     download: |
@@ -53,6 +54,7 @@ packages:
     link: shared
     debug: false
   petsc4py:
+    version: 3.6.0
     with_conf: true
   pytables:
   sphinx:
@@ -63,3 +65,5 @@ packages:
   memory_profiler:
   h5py:
   ode:
+  pip:
+  scipy:
