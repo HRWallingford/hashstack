@@ -88,7 +88,7 @@ packages:
   pygrib:
   scipy:
   h5py:
-    use: host-mpi
+      #use: host-mpi
   pydap:
   rdp:
   ode:
@@ -127,5 +127,7 @@ packages:
   julia:
   pyjulia:
   #vtk:
-  recordtype:
-  #fenton:
+  recordtype: 
+  #fenton: 
+ 
+
