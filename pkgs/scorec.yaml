@@ -3,9 +3,9 @@ dependencies:
   build: [mpi, parmetis] #, zoltan]
 
 sources:
-  - url: https://github.com/SCOREC/core.git
-    key: git:e219777edd875d35096dfedd7197300b8e2f3837
-    
+  - url: https://github.com/scorec/core.git
+    key: git:dfd8e6026257595eac7464cccf43d937b7aec294
+
 defaults:
   relocatable: true
 
@@ -21,6 +21,7 @@ build_stages:
 - name: configure
   debug: true
   extra: [
+  '-DBUILD_SHARED_LIBS:BOOL=ON',
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
   '-DENABLE_ZOLTAN:BOOL=OFF', #N',
