@@ -27,18 +27,13 @@ parameters:
   DYNAMIC_EXE_LINKER_FLAGS: -dynamic
 
 packages:
-  clawpack:
   launcher:
   cmake:
-  openjpeg:
-    version: '2.1'
-  openssl:
-    use: host-openssl
   python:
     host: false
     link: shared
     build_with: |
-      bzip2, sqlite, openssl
+      bzip2, sqlite
   blas:
     use: openblas
   lapack:
@@ -48,11 +43,9 @@ packages:
     use: host-mpi
   mpi4py:
   nose:
-  coverage:
   hdf5:
-  pygments:
-  parmetis:
-  pillow:
+  ipython:
+  matplotlib:
   petsc:
     version: 3.7.5
     build_with: |
@@ -65,67 +58,126 @@ packages:
   petsc4py:
     version: 3.7.0
     with_conf: true
+#    build_with: |
+#      parmetis
+#    download: |
+#      hypre, blacs, scalapack, superlu, superlu_dist
+#    coptflags: -O2
+#    link: shared
+#    debug: true
+#  petsc4py:
+#    with_conf: true
   pytables:
+  scorec:
+  simmetrix:
+  sphinx:
   superlu:
   sympy:
   tetgen:
   triangle:
-  memory_profiler:
-  boost:
-    toolset: gcc
-    address_model: 64
+  zoltan:
     build_with: |
-      python
-  cgal:
-  pycgal:
-  netcdf4:
-  netcdf4f:
-  python-netcdf4:
-  netcdf4cpp:
-  jasper:
-  grib_api:
-  pyproj:
-  pygrib:
-  scipy:
-  h5py:
-      #  use: host-mpi
-  pydap:
-  rdp:
-  ode:
-  pip:
-  pexpect:
-  pcs_api:
-      #zoltan:
-      #  build_with: |
-      #      parmetis
-  chrono:
-  pytest:
-  pytest-xdist:
-  doxygen:
-  gmsh:
-    use: host-mpi
-  scorec:
-  matplotlib:
-  sphinx:
-  sphinx-bootstrap-theme:
-  pyzmq:
-  vapory:
-  tornado:
-  ipython:
-  terminado:
-  geojson:
-  shapely:
-  matlab:
-    use: host-matlab
-  ipdb:
-  jupyterlab:
-  jupyter:
-  ipyparallel:
-  buildbot-worker:
-  julia:
-  pyjulia:
-  pythreejs:
-  traitlets:
-  ipywidgets:
-  widgetsnbextension:
-#  vtk:
+      parmetis
+#packages:
+#  clawpack:
+#  launcher:
+#  cmake:
+#  openjpeg:
+#    version: '2.1'
+#  openssl:
+#    use: host-openssl
+#  python:
+#    host: false
+#    link: shared
+#    build_with: |
+#      bzip2, sqlite, openssl
+#  blas:
+#    use: openblas
+#  lapack:
+#    use: openblas-lapack
+#  daetk:
+#  mpi:
+#    use: host-mpi
+#  mpi4py:
+#  nose:
+#  coverage:
+#  hdf5:
+#  pygments:
+#  parmetis:
+#  pillow:
+#  petsc:
+#    version: 3.7.5
+#    build_with: |
+#      parmetis, cmake, openblas
+#    download: |
+#      superlu, superlu_dist, hypre, blacs, scalapack, mumps
+#    coptflags: -O2
+#    link: shared
+#    debug: false 
+#  petsc4py:
+#    version: 3.7.0
+#    with_conf: true
+#  pytables:
+#  superlu:
+#  sympy:
+#  tetgen:
+#  triangle:
+#  memory_profiler:
+#  boost:
+#    toolset: gcc
+#    address_model: 64
+#    build_with: |
+#      python
+#  cgal:
+#  pycgal:
+#  netcdf4:
+#  netcdf4f:
+#  python-netcdf4:
+#  netcdf4cpp:
+#  jasper:
+#  grib_api:
+#  pyproj:
+#  pygrib:
+#  scipy:
+#  h5py:
+#      #  use: host-mpi
+#  pydap:
+#  rdp:
+#  ode:
+#  pip:
+#  pexpect:
+#  pcs_api:
+#  zoltan:
+#    build_with: |
+#      parmetis
+#  chrono:
+#  pytest:
+#  pytest-xdist:
+#  doxygen:
+#  gmsh:
+#    use: host-mpi
+#  scorec:
+#  matplotlib:
+#  sphinx:
+#  sphinx-bootstrap-theme:
+#  pyzmq:
+#  vapory:
+#  tornado:
+#  ipython:
+#  terminado:
+#  geojson:
+#  shapely:
+#  matlab:
+#    use: host-matlab
+#  ipdb:
+#  jupyterlab:
+#  jupyter:
+#  ipyparallel:
+#  buildbot-worker:
+#  julia:
+#  pyjulia:
+#  pythreejs:
+#  traitlets:
+#  ipywidgets:
+#  widgetsnbextension:
+##  vtk:
