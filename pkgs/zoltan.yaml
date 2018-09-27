@@ -21,12 +21,13 @@ build_stages:
   after: setup_builddir
   handler: bash
   bash: |
-    #export MPI_DIR=/apps/openmpi/1.10.2/gcc/6.1.0/lib
     export MPI_DIR=$MPI_ROOT
-    export CFLAGS="-m64"
-    export CXXFLAGS="-m64"
-    export CPPFLAGS="-m64"
-    export FCFLAGS="-m64"
+    export CC=$MPICC
+    export CXX=$MPICXX
+    #export CFLAGS="-m64"
+    #export CXXFLAGS="-m64"
+    #export CPPFLAGS="-m64"
+    #export FCFLAGS="-m64"
 
 - name: configure
   after: setEnv
