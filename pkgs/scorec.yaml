@@ -1,11 +1,15 @@
 extends: [cmake_package]
 dependencies:
-  build: [mpi, parmetis] #, zoltan]
+  build: [mpi, parmetis, zoltan, bzip2]
 
+#changing git->zip b/c of ssl issues on hpcmp platforms
+#sources:
+#  - url: https://github.com/scorec/core.git
+#    key: git:fc94c3d4b013d7535e43549577b2c5f619d43d4b
 sources:
-  - url: https://github.com/SCOREC/core.git
-    key: git:e219777edd875d35096dfedd7197300b8e2f3837
-    
+- key: zip:ttofytsvsn7wiy5mw3utbdbmobbw7zr7
+  url: https://github.com/SCOREC/core/archive/fc94c3d4b013d7535e43549577b2c5f619d43d4b.zip
+
 defaults:
   relocatable: true
 
@@ -21,11 +25,17 @@ build_stages:
 - name: configure
   debug: true
   extra: [
+  '-DBUILD_SHARED_LIBS:BOOL=ON',
   '-DCMAKE_C_COMPILER:STRING=${MPICC}',
   '-DCMAKE_CXX_COMPILER:STRING=${MPICXX}',
-  '-DENABLE_ZOLTAN:BOOL=OFF', #ON',
+  '-DENABLE_ZOLTAN:BOOL=ON',
+  '-DSCOREC_CXX_OPTIMIZE=ON',
+  '-DMDS_ID_TYPE="int"',
+  '-DPCU_COMPRESS=ON',
+  '-DENABLE_FPP=ON',
   '-DENABLE_SIMMETRIX:BOOL=OFF',
   '-DZOLTAN_PREFIX:PATH=${ZOLTAN_DIR}',
   '-DPARMETIS_PREFIX:PATH=${PARMETIS_DIR}',
+  '-DCMAKE_BUILD_TYPE=Release',
+  '-DSCOREC_CXX_WARNINGS=OFF'
   ]
-

@@ -23,15 +23,13 @@ parameters:
   PATH: |
     /usr/bin:/bin:/usr/sbin:/sbin
   PROLOGUE: |
-    source /etc/profile.d/modules.sh;echo "loading modules";module load gcc/6.1.0;module load openmpi/1.10.2/gcc/6.1.0;echo "setting default compilers";export CPP=/usr/bin/cpp;
+    source /etc/profile.d/modules.sh;echo "loading modules";module load gcc/6.1.0;module load openmpi/1.10.2/gcc/6.1.0;module load hdf5/1.8.19/gcc/6.1.0;echo "setting default compilers";export CPP=/usr/bin/cpp;
   DYNAMIC_EXE_LINKER_FLAGS: -dynamic
 
 packages:
-  clawpack:
-  launcher:
+  future:
+  recordtype:
   cmake:
-  openjpeg:
-    version: '2.1'
   openssl:
     use: host-openssl
   python:
@@ -50,11 +48,10 @@ packages:
   nose:
   coverage:
   hdf5:
-  pygments:
+    use: host-hdf5
   parmetis:
-  pillow:
   petsc:
-    version: 3.7.5
+    version: 3.7.6
     build_with: |
       parmetis, cmake, openblas
     download: |
@@ -66,66 +63,24 @@ packages:
     version: 3.7.0
     with_conf: true
   pytables:
-  superlu:
-  sympy:
   tetgen:
   triangle:
   memory_profiler:
+  h5py:
+  pip:
   boost:
     toolset: gcc
     address_model: 64
     build_with: |
       python
-  cgal:
-  pycgal:
-  netcdf4:
-  netcdf4f:
-  python-netcdf4:
-  netcdf4cpp:
-  jasper:
-  grib_api:
-  pyproj:
-  pygrib:
-  scipy:
-  h5py:
-      #  use: host-mpi
-  pydap:
-  rdp:
-  ode:
-  pip:
-  pexpect:
-  pcs_api:
-      #zoltan:
-      #  build_with: |
-      #      parmetis
+  openjpeg: #dependency of chrono
+    version: '2.1'
   chrono:
   pytest:
   pytest-xdist:
-  doxygen:
-  gmsh:
-    use: host-mpi
+  pytest-cov:
+  pybind11:
+  #gmsh:
   scorec:
-  matplotlib:
-  sphinx:
-  sphinx-bootstrap-theme:
-  pyzmq:
-  vapory:
-  tornado:
   ipython:
-  terminado:
-  geojson:
-  shapely:
-  matlab:
-    use: host-matlab
-  ipdb:
-  jupyterlab:
-  jupyter:
-  ipyparallel:
-  buildbot-worker:
-  julia:
-  pyjulia:
-  pythreejs:
-  traitlets:
-  ipywidgets:
-  widgetsnbextension:
-#  vtk:
+  scipy:
